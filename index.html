@@ -196,7 +196,7 @@
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      (a) “Vanilla” denotes the latent subspace methods. (b) Our proposed IMDR strategy employs explicit constraints to minimize mutual information to the Disentangle Extraction layer, guided by a joint distribution, to effectively decouple multimodal data. (c) Illustration of the intra-modality inter-channel distance and inter-modality inter-channel distance between feature maps of the encoders from different modalities. The definition of channel distance is detailed in the Appendix B. “Single” is the model that trains the encoders of each modality independently, providing the ideal feature diversity without inter-modality interference. “:A” denotes the histogram mean. Lower inter-channel similarity means higher diversity.
+      Figure 1. (a) “Vanilla” denotes the latent subspace methods. (b) Our proposed IMDR strategy employs explicit constraints to minimize mutual information to the Disentangle Extraction layer, guided by a joint distribution, to effectively decouple multimodal data. (c) Illustration of the intra-modality inter-channel distance and inter-modality inter-channel distance between feature maps of the encoders from different modalities. The definition of channel distance is detailed in the Appendix B. “Single” is the model that trains the encoders of each modality independently, providing the ideal feature diversity without inter-modality interference. “:A” denotes the histogram mean. Lower inter-channel similarity means higher diversity.
     </figcaption>
   </figure>
 </section>
@@ -245,7 +245,7 @@
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-    <p>Overview of Our Proposed Framewor: (a) We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss <span class="equation">L<sub>Feat</sub></span> and logit loss <span class="equation">L<sub>Logit</sub></span>.         During the training of the teacher model, the encoder outputs the single-modality features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>. We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between <span class="equation">ê</span> and <span class="equation">e</span>. All proxies are optimized through the proxy loss <span class="equation">L<sub>Prox</sub></span>. Consequently, <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, together with features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>, are passed to the IMDR.
+    <p>Figure 2. Overview of Our Proposed Framewor: (a) We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss <span class="equation">L<sub>Feat</sub></span> and logit loss <span class="equation">L<sub>Logit</sub></span>.         During the training of the teacher model, the encoder outputs the single-modality features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>. We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between <span class="equation">ê</span> and <span class="equation">e</span>. All proxies are optimized through the proxy loss <span class="equation">L<sub>Prox</sub></span>. Consequently, <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, together with features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>, are passed to the IMDR.
 (b)Details for the IMDR strategy: We estimate the distributions of <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, then combine them using Equation <span class="equation">P(̂e | x<sup>f</sup>, x<sup>O</sup>)</span> to obtain the joint distribution. The modality-shared feature <span class="equation">s</span> is sampled from this distribution. This feature <span class="equation">s</span> guides the decoupling via an attention layer, supervised by the loss <span class="equation">L<sub>MI</sub></span> to minimize the mutual information between the extracted shared features <span class="equation">̂s</span> and specific features <span class="equation">R<sup>f</sup></span>, <span class="equation">R<sup>O</sup></span>, as well as between <span class="equation">R<sup>f</sup></span> and <span class="equation">R<sup>O</sup></span>. </p>
     </figcaption>
   </figure>
@@ -268,7 +268,7 @@
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      Under Complete-Modality conditions, we evaluate our IMDR model against other models using two baseline architectures: CNN and Transformer. Specifically, we utilize 2D/3D-ResNet50  as CNN backbones, while Swin-Transformer and UNETR are employed as Transformer backbones. Under Missing-Modality conditions, all models uniformly use 2D/3D-ResNet-50 backbones and apply the same distillation method, as outlined in our approach, to ensure experimental consistency. The model’s efficacy is assessed using four key metrics: ACC, AUC, F1 and Spec. 
+      Figure 3. Under Complete-Modality conditions, we evaluate our IMDR model against other models using two baseline architectures: CNN and Transformer. Specifically, we utilize 2D/3D-ResNet50  as CNN backbones, while Swin-Transformer and UNETR are employed as Transformer backbones. Under Missing-Modality conditions, all models uniformly use 2D/3D-ResNet-50 backbones and apply the same distillation method, as outlined in our approach, to ensure experimental consistency. The model’s efficacy is assessed using four key metrics: ACC, AUC, F1 and Spec. 
     </figcaption>
   </figure>
 </section>
@@ -293,11 +293,11 @@
     <img 
       src="./static/images/cam_4data_00.png" 
       alt="image" 
-      style="width: 120%; height: auto;" 
+      style="width: 85%; height: auto;" 
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      Comparative visualization of attention maps under
+      Figure 4. Comparative visualization of attention maps under
 the inter-modality incompleteness setting: The first row corresponds to the Harvard-30k AMD dataset; the second row corresponds to the Harvard-30k Glaucoma dataset; the third row corresponds to the Harvard-30k DR dataset, and the fourth row corresponds to the GAMMA dataset. For each dataset, we select a representative disease stage.
     </figcaption>
   </figure>
