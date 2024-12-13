@@ -239,13 +239,17 @@
   <section class="section" style="margin-top: -2.6rem;">
   <figure class="image is-centered" style="width: 80%; margin: 0 auto 1rem; text-align: center;">
     <img 
-      src="./static/images/method.png" 
+      src="./static/images/Model_network_00.jpg" 
       alt="image" 
       style="width: 100%; height: auto;" 
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      The scheme of the proposed <strong>FarSight</strong> strategy, which integrates with the <strong>softmax</strong> operation, replaces the traditional causal mask. Specifically, the attention score matrix \( \omega \) is cleared of attention values in the upper triangular part, then register-attention scores are added using the matrix \( \mathcal{P} \), followed by the softmax computation. \( \mathcal{P} \) has a linear decay in the upper triangular part and zeros in the lower triangular part. After the softmax operation, the remaining attention probabilities in the upper triangular part are cleared to ensure the causal decoding property is preserved.
+      Overview of our proposed framework. \textbf{(a)}: 
+    We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss $\mathcal{L}_{\text{Feat}}$ and logit loss $\mathcal{L}_{\text{Logit}}$.
+    During the training of the teacher model, the encoder outputs the single-modality feature $e^f$ and $e^O$.  We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between $\hat{e}$ and $e$. All proxies are optimized through the proxy loss $\mathcal{L}_{\text{Prox}}$. Consequently, $\hat{e}^{f,+}$ and $\hat{e}^{O,+}$, together with features $e^f$ and $e^O$ are then passed to the IMDR.
+    \textbf{(b)}: Details for IMDR strategey. 
+    We estimate the distributions of $\hat{e}^{f,+}$ and $\hat{e}^{O,+}$, then combine them using Eq.~\ref{eq: poe} to obtain the joint distribution $\mathcal{P}(\hat{e} \vert  x^{f}, x^{O})$. The modality-shared feature $s$ is sampled from this distribution. This feature $s$ guides the decoupling via an attention layer, supervised by the loss $\mathcal{L}_{\text{MI}}$ to minimize the mutual information between extracted shared features $\hat{s}$ and specific features $(\mathcal{R}^f, \mathcal{R}^O)$, as well as between $\mathcal{R}^f$ and $\mathcal{R}^O$.
     </figcaption>
   </figure>
 </section>
