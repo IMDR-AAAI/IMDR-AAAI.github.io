@@ -241,20 +241,12 @@
     <img 
       src="./static/images/Model_network_00.jpg" 
       alt="image" 
-      style="width: 100%; height: auto;" 
+      style="width: 120%; height: auto;" 
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-        <h2>11111Overview of Our Proposed Framework</h2>
-
-            <h3>(a)</h3>
-            <p>We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss <span class="equation">L<sub>Feat</sub></span> and logit loss <span class="equation">L<sub>Logit</sub></span>.</p>
-            <p>During the training of the teacher model, the encoder outputs the single-modality features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>. We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between <span class="equation">ê</span> and <span class="equation">e</span>. All proxies are optimized through the proxy loss <span class="equation">L<sub>Prox</sub></span>. Consequently, <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, together with features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>, are passed to the IMDR.</p>
-
-            <h3>(b)</h3>
-            <p>Details for the IMDR strategy:</p>
-            <p>We estimate the distributions of <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, then combine them using Equation <span class="equation">P(̂e | x<sup>f</sup>, x<sup>O</sup>)</span> to obtain the joint distribution. The modality-shared feature <span class="equation">s</span> is sampled from this distribution. This feature <span class="equation">s</span> guides the decoupling via an attention layer, supervised by the loss <span class="equation">L<sub>MI</sub></span> to minimize the mutual information between the extracted shared features <span class="equation">̂s</span> and specific features <span class="equation">R<sup>f</sup></span>, <span class="equation">R<sup>O</sup></span>, as well as between <span class="equation">R<sup>f</sup></span> and <span class="equation">R<sup>O</sup></span>.</p>
-      
+    <p>Overview of Our Proposed Framewor: (a) We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss <span class="equation">L<sub>Feat</sub></span> and logit loss <span class="equation">L<sub>Logit</sub></span>.         During the training of the teacher model, the encoder outputs the single-modality features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>. We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between <span class="equation">ê</span> and <span class="equation">e</span>. All proxies are optimized through the proxy loss <span class="equation">L<sub>Prox</sub></span>. Consequently, <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, together with features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>, are passed to the IMDR.
+(b)Details for the IMDR strategy: We estimate the distributions of <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, then combine them using Equation <span class="equation">P(̂e | x<sup>f</sup>, x<sup>O</sup>)</span> to obtain the joint distribution. The modality-shared feature <span class="equation">s</span> is sampled from this distribution. This feature <span class="equation">s</span> guides the decoupling via an attention layer, supervised by the loss <span class="equation">L<sub>MI</sub></span> to minimize the mutual information between the extracted shared features <span class="equation">̂s</span> and specific features <span class="equation">R<sup>f</sup></span>, <span class="equation">R<sup>O</sup></span>, as well as between <span class="equation">R<sup>f</sup></span> and <span class="equation">R<sup>O</sup></span>. </p>
     </figcaption>
   </figure>
 </section>
