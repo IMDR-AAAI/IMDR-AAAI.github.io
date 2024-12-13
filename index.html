@@ -245,11 +245,16 @@
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      Overview of our proposed framework. \textbf{(a)}: 
-    We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss $\mathcal{L}_{\text{Feat}}$ and logit loss $\mathcal{L}_{\text{Logit}}$.
-    During the training of the teacher model, the encoder outputs the single-modality feature $e^f$ and $e^O$.  We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between $\hat{e}$ and $e$. All proxies are optimized through the proxy loss $\mathcal{L}_{\text{Prox}}$. Consequently, $\hat{e}^{f,+}$ and $\hat{e}^{O,+}$, together with features $e^f$ and $e^O$ are then passed to the IMDR.
-    \textbf{(b)}: Details for IMDR strategey. 
-    We estimate the distributions of $\hat{e}^{f,+}$ and $\hat{e}^{O,+}$, then combine them using Eq.~\ref{eq: poe} to obtain the joint distribution $\mathcal{P}(\hat{e} \vert  x^{f}, x^{O})$. The modality-shared feature $s$ is sampled from this distribution. This feature $s$ guides the decoupling via an attention layer, supervised by the loss $\mathcal{L}_{\text{MI}}$ to minimize the mutual information between extracted shared features $\hat{s}$ and specific features $(\mathcal{R}^f, \mathcal{R}^O)$, as well as between $\mathcal{R}^f$ and $\mathcal{R}^O$.
+        <h2>Overview of Our Proposed Framework</h2>
+
+            <h3>(a)</h3>
+            <p>We train a teacher model using complete modality data, followed by co-training with a student model on incomplete inputs for knowledge distillation. The distillation is supervised by feature loss <span class="equation">L<sub>Feat</sub></span> and logit loss <span class="equation">L<sub>Logit</sub></span>.</p>
+            <p>During the training of the teacher model, the encoder outputs the single-modality features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>. We build a set of proxies for a modality, with each set representing a class. Positive proxies are selected by a similarity matrix between <span class="equation">ê</span> and <span class="equation">e</span>. All proxies are optimized through the proxy loss <span class="equation">L<sub>Prox</sub></span>. Consequently, <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, together with features <span class="equation">e<sup>f</sup></span> and <span class="equation">e<sup>O</sup></span>, are passed to the IMDR.</p>
+
+            <h3>(b)</h3>
+            <p>Details for the IMDR strategy:</p>
+            <p>We estimate the distributions of <span class="equation">ê<sup>f,+</sup></span> and <span class="equation">ê<sup>O,+</sup></span>, then combine them using Equation <span class="equation">P(̂e | x<sup>f</sup>, x<sup>O</sup>)</span> to obtain the joint distribution. The modality-shared feature <span class="equation">s</span> is sampled from this distribution. This feature <span class="equation">s</span> guides the decoupling via an attention layer, supervised by the loss <span class="equation">L<sub>MI</sub></span> to minimize the mutual information between the extracted shared features <span class="equation">̂s</span> and specific features <span class="equation">R<sup>f</sup></span>, <span class="equation">R<sup>O</sup></span>, as well as between <span class="equation">R<sup>f</sup></span> and <span class="equation">R<sup>O</sup></span>.</p>
+      
     </figcaption>
   </figure>
 </section>
