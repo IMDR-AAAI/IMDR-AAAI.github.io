@@ -190,13 +190,13 @@
 <section class="section" style="margin-top: -2.6rem;">
   <figure class="image is-centered" style="width: 60%; margin: 0 auto 1rem; text-align: center;">
     <img 
-      src="./static/images/intro.png" 
+      src="./static/images/method.jpg" 
       alt="image" 
       style="width: 60%; height: auto; margin-left: 25%;" 
       loading="lazy"
     />
     <figcaption style="text-align: center;">
-      (a): Attention Collapse in MLLMs: Outlier tokens from different modalities are assigned disproportionately high attention scores, hindering interaction between relevant tokens. (b): Positional Information Decay: As text generation progresses, attention to visual information gradually diminishes. (c): Our FarSight, as a plug-in, mitigates these issues by effectively reducing attention interference from outlier tokens and improving response accuracy.
+      (a) “Vanilla” denotes the latent subspace methods. (b) Our proposed IMDR strategy employs explicit constraints to minimize mutual information to the Disentangle Extraction layer, guided by a joint distribution, to effectively decouple multimodal data. (c) Illustration of the intra-modality inter-channel distance and inter-modality inter-channel distance between feature maps of the encoders from different modalities. The definition of channel distance is detailed in the Appendix B. “Single” is the model that trains the encoders of each modality independently, providing the ideal feature diversity without inter-modality interference. “:A” denotes the histogram mean. Lower inter-channel similarity means higher diversity.
     </figcaption>
   </figure>
 </section>
@@ -209,7 +209,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Recent advancements in multimodal large language models (MLLMs) have significantly improved performance in visual question answering. However, they often suffer from hallucinations. In this work, hallucinations are categorized into two main types: initial hallucinations and snowball hallucinations. We argue that adequate contextual information can be extracted directly from the token interaction process. Inspired by causal inference in decoding strategy, we propose to leverage causal masks to establish information propagation between multimodal tokens. The hypothesis is that insufficient interaction between those tokens may lead the model to rely on outlier tokens, overlooking dense and rich contextual cues. Therefore, we propose to intervene in the propagation process by tackling outlier tokens to enhance in-context inference. With this goal, we present FarSight, a versatile plug-and-play decoding strategy to reduce attention interference from outlier tokens merely by optimizing the causal mask. The heart of our method is effective token propagation. We design an attention register structure within the upper triangular matrix of the causal mask, dynamically allocating attention capture attention diverted to outlier tokens. Moreover, a positional awareness encoding method with a diminishing masking rate is proposed, allowing the model to attend to further preceding tokens, especially for video sequence tasks. With extensive experiments, FarSight demonstrates significant hallucination-mitigating performance across different MLLMs on both image and video benchmarks, proving its effectiveness.
+            Ophthalmologists typically require multimodal data sources to improve diagnostic accuracy in clinical decisions. However, due to medical device shortages, low-quality data and data privacy concerns, missing data modalities are common in real-world scenarios. Existing deep learning methods tend to address it by learning an implicit latent subspace representation for different modality combinations. We identify two significant limitations of these methods: (1) implicit representation constraints that hinder the model's ability to capture modality-specific information and (2) modality heterogeneity, causing distribution gaps and redundancy in feature representations. To address these, we propose an Incomplete Modality Disentangled Representation (IMDR) strategy, which disentangles features into explicit independent modal-common and modal-specific features by guidance of mutual information, distilling informative knowledge and enabling it to reconstruct valuable missing semantics and produce robust multimodal representations. Furthermore, we introduce a joint proxy learning module that assists IMDR in eliminating intra-modality redundancy by exploiting the extracted proxies from each class. Experiments on four ophthalmology multimodal datasets demonstrate that the proposed IMDR outperforms the state-of-the-art methods significantly.
           </p>
         </div>
       </div>
